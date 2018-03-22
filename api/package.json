@@ -1,0 +1,17 @@
+{
+  "name": "mongolearning",
+  "version": "1.0.0",
+  "description": "mongo learning ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "kanchan singh",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "mongodb": "^3.0.1",
+    "nodemon": "^1.14.11"
+  }
+}

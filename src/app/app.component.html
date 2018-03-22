@@ -1,0 +1,69 @@
+<mat-accordion>
+  <mat-expansion-panel [expanded]=true>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Add user
+      </mat-panel-title>
+      <mat-panel-description>
+        Enter User Details
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+    <mat-form-field>
+      <input matInput placeholder="Name">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Weight" type="number">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Symbol">
+    </mat-form-field>
+    <button (click)="addUser($event)" mat-button>Add User</button>
+  </mat-expansion-panel>
+</mat-accordion>
+
+<mat-accordion>
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Users Data
+      </mat-panel-title>
+      <mat-panel-description>
+        List of users
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+
+    <div class="example-container mat-elevation-z8"> 
+        <mat-table #table [dataSource]="dataSource">
+          <!-- Position Column -->
+          <ng-container matColumnDef="position">
+            <mat-header-cell *matHeaderCellDef> No. </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.position}} </mat-cell>
+          </ng-container>
+      
+          <!-- Name Column -->
+          <ng-container matColumnDef="name">
+            <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+          </ng-container>
+      
+          <!-- Weight Column -->
+          <ng-container matColumnDef="weight">
+            <mat-header-cell *matHeaderCellDef> Weight </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.weight}} </mat-cell>
+          </ng-container>
+      
+          <!-- Symbol Column -->
+          <ng-container matColumnDef="symbol">
+            <mat-header-cell *matHeaderCellDef> Symbol </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.symbol}} </mat-cell>
+          </ng-container>
+      
+          <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+          <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+        </mat-table>
+      </div>
+
+  </mat-expansion-panel>
+</mat-accordion>
+
+
