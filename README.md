@@ -1,8 +1,9 @@
 # ng2-mean-stack
 Mean Stack scaffolding with Angular 2+.
 
-#Pre-requisites -
-    Make sure you have installed mongo and node in your machine.
+# Pre-requisites -
+Make sure you have installed mongo and node in your machine.
+
     1) MondoDB - https://www.mongodb.com/download-center
     2) NodeJS - https://nodejs.org/en/download/
 
