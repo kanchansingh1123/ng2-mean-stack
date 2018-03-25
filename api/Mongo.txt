@@ -14,6 +14,10 @@ db - database
 names - collection
 record - values
 
+-- create collection --
+
+db.createCollection("names")
+
 db.names.insert({})
 
 type help to find all help commands

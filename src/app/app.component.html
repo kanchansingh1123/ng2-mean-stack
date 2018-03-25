@@ -9,20 +9,21 @@
       </mat-panel-description>
     </mat-expansion-panel-header>
     <mat-form-field>
-      <input matInput placeholder="Name">
+      <input matInput placeholder="Name" [formControl]="userForm.controls['name']" required>
+      <mat-error *ngIf="userForm.controls['name'].invalid">Please enter name</mat-error> 
     </mat-form-field>
     <mat-form-field>
-      <input matInput placeholder="Weight" type="number">
+      <input matInput placeholder="Weight" type="number" [formControl]="userForm.controls['weight']" required>
+      <mat-error *ngIf="userForm.controls['weight'].invalid">Please enter weight</mat-error>
     </mat-form-field>
-    <mat-form-field>
-      <input matInput placeholder="Symbol">
-    </mat-form-field>
-    <button (click)="addUser($event)" mat-button>Add User</button>
+    <button [disabled]="userForm.invalid" (click)="addUser($event)" mat-button>Add User</button> 
+    <button [disabled]="dataSource.length == 0" (click)="deleteUser($event)" mat-button>Delete First User</button> 
+    <button [disabled]="dataSource.length == 0 || userForm.invalid" (click)="updateUser($event)" mat-button>Update First User</button> 
   </mat-expansion-panel>
 </mat-accordion>
 
 <mat-accordion>
-  <mat-expansion-panel>
+  <mat-expansion-panel [expanded]=true> 
     <mat-expansion-panel-header>
       <mat-panel-title>
         Users Data
@@ -35,9 +36,9 @@
     <div class="example-container mat-elevation-z8"> 
         <mat-table #table [dataSource]="dataSource">
           <!-- Position Column -->
-          <ng-container matColumnDef="position">
+          <ng-container matColumnDef="id">
             <mat-header-cell *matHeaderCellDef> No. </mat-header-cell>
-            <mat-cell *matCellDef="let element"> {{element.position}} </mat-cell>
+            <mat-cell *matCellDef="let element"> {{element.id}} </mat-cell>
           </ng-container>
       
           <!-- Name Column -->
@@ -50,12 +51,6 @@
           <ng-container matColumnDef="weight">
             <mat-header-cell *matHeaderCellDef> Weight </mat-header-cell>
             <mat-cell *matCellDef="let element"> {{element.weight}} </mat-cell>
-          </ng-container>
-      
-          <!-- Symbol Column -->
-          <ng-container matColumnDef="symbol">
-            <mat-header-cell *matHeaderCellDef> Symbol </mat-header-cell>
-            <mat-cell *matCellDef="let element"> {{element.symbol}} </mat-cell>
           </ng-container>
       
           <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>

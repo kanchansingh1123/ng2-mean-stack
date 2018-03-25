@@ -1,6 +1,5 @@
 export interface ITable {
-    name: string;
-    position: number;
+    id: number;
+    name: string;    
     weight: number;
-    symbol: string;
 }
