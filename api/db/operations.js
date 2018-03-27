@@ -33,6 +33,30 @@ exports.getUsers = function(req, res) {
     db.database.collection('users').find({}).toArray(function (err, docs) {
         sendResponse(null, res, docs);        
     });
+
+    /** sorting*/
+    /*db.database.collection('users').find({}).sort({name:1, weight: 1}).toArray(function (err, docs) {
+        sendResponse(null, res, docs);        
+    });*/
+
+    // using projection we can select/remove the fields
+    // if we give only 0 then projection will return all rest of the fields.
+    // if we give both 0 and 1, projection will return only mentioned keys
+    // if we give only 1, projection will return that particular key only except _id until we give 0 for id
+
+    /*db.database.collection('users').find({}, {fields:{id:1,name:1}}).toArray(function (err, docs) {
+        sendResponse(null, res, docs);        
+    });*/
+
+    /**limit */
+    /*db.database.collection('users').find({}, {fields:{_id:0}}).limit(5).toArray(function (err, docs) {
+        sendResponse(null, res, docs);        
+    });*/
+
+    /**skip */
+    /*db.database.collection('users').find({}, {fields:{_id:0}}).limit(5).skip(5).toArray(function (err, docs) {
+        sendResponse(null, res, docs);
+    });*/
 }
 
 exports.getUser = function(req, res) {
