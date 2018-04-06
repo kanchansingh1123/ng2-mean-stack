@@ -1,0 +1,1 @@
+console.log("Child Process support js " + process.argv[2] + " executed." );
