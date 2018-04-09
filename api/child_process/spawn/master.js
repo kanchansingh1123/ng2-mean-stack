@@ -1,3 +1,10 @@
+/**
+ * The spawn() method returns streams (stdout &stderr) and it should be used when the 
+ * process returns a volume amount of data. 
+ * 
+ * spawn() starts receiving the response as soon as the process starts executing.
+ */
+
 const fs = require('fs');
 const child_process = require('child_process');
 
