@@ -1,15 +1,12 @@
 const fs = require('fs');
 
-const writer = fs.createWriteStream('example.txt');
+var readableStream = fs.createReadStream(__dirname + '/data1.txt', {encoding: 'utf8'});
 
+var writableStream = fs.createWriteStream(__dirname + '/data2.txt');
 
-const reader = fs.createReadStream('example.txt');
+// readableStream.on('data', function(datachunk) {
+//     console.log('data chunk recived');
+//     //writableStream.write(datachunk);
+// });
 
-
-writer.on('pipe', (src) => {
-    console.error('something is piping into the writer');
-    writer.write('hello, ');
-    //writer.end('world!');
-});
-
-reader.pipe(writer);
+readableStream.pipe(writableStream);
